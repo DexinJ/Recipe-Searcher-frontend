@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/recipe-searcher-frontend/static/css/main.71d74aaa.css",
+    "main.js": "/recipe-searcher-frontend/static/js/main.0721d1f5.js",
+    "static/js/787.017c712e.chunk.js": "/recipe-searcher-frontend/static/js/787.017c712e.chunk.js",
+    "static/media/pexels-ella-olsson.jpg": "/recipe-searcher-frontend/static/media/pexels-ella-olsson.e3816546ef7ee41ec5b1.jpg",
+    "static/media/github.svg": "/recipe-searcher-frontend/static/media/github.7852d1cade419b61e3b4.svg",
+    "index.html": "/recipe-searcher-frontend/index.html",
+    "static/media/close.svg": "/recipe-searcher-frontend/static/media/close.8d413da1e5d3a5acab3f.svg",
+    "static/media/bookmark.svg": "/recipe-searcher-frontend/static/media/bookmark.317c48610e99a2f40ff4.svg",
+    "static/media/menu.svg": "/recipe-searcher-frontend/static/media/menu.52e80d2c408555fa8591.svg",
+    "main.71d74aaa.css.map": "/recipe-searcher-frontend/static/css/main.71d74aaa.css.map",
+    "main.0721d1f5.js.map": "/recipe-searcher-frontend/static/js/main.0721d1f5.js.map",
+    "787.017c712e.chunk.js.map": "/recipe-searcher-frontend/static/js/787.017c712e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.71d74aaa.css",
+    "static/js/main.0721d1f5.js"
+  ]
+}
