@@ -13,7 +13,7 @@ function Navigation() {
       <div>
         <Link to="/">
           <img
-            src="/images/whats_in_my_fridge.svg"
+            src="images/whats_in_my_fridge.svg"
             alt="logo"
             className="navigation__image"
           />

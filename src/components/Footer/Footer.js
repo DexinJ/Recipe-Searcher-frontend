@@ -4,7 +4,7 @@ function Footer() {
   return (
     <footer className="footer">
       <div className="footer__about-me">
-        <img src="/images/head.jpg" className="footer__image" alt="Author" />
+        <img src="images/head.jpg" className="footer__image" alt="Author" />
         <div className="footer__texts">
           <div className="footer__title">About Me</div>
           <div className="footer__text">
