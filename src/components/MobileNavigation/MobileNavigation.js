@@ -19,7 +19,6 @@ function MobileNavigation({ onClick, show }) {
           />
         </div>
         <button className="mobile-navigation__button">Home</button>
-        <button className="mobile-navigation__button">Profile</button>
         <button className="mobile-navigation__button">Saved Recipe</button>
         <button className="mobile-navigation__button">Logout</button>
       </div>

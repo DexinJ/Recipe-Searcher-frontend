@@ -1,12 +1,13 @@
-import MobileNavigation from "../MobileNavigation/MobileNavigation";
+import { useContext } from "react";
 import Navigation from "../Navigation/Navigation";
 import Search from "../Search/Search";
 import "./Header.css";
-function Header() {
+import { CurrentLinkContext } from "../../contexts/CurrentLinkContext";
+function Header({ onSearch }) {
   return (
     <header className="header">
       <Navigation />
-      <Search />
+      <Search onSearch={onSearch} />
     </header>
   );
 }

@@ -1,3 +1,5 @@
+const APIKey = "8ff3605cc2cf4485bbf3e3bc91430402";
+
 const defaultRecipeItem = [
   {
     id: 73420,
@@ -156,4 +158,4 @@ const defaultRecipeItem = [
   },
 ];
 
-export { defaultRecipeItem };
+export { APIKey, defaultRecipeItem };

@@ -4,6 +4,7 @@
   border-radius: 10px;
   object-fit: contain;
   background-color: #fff;
+  width: 300px;
 }
 
 .item__image {

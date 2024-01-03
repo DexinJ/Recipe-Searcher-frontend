@@ -21,7 +21,6 @@ function Navigation() {
           <button className="navigation__tag navigation__tag_active">
             Home
           </button>
-          <button className="navigation__tag">Profile</button>
           <button className="navigation__tag">Saved Recipe</button>
         </div>
         <button className="navigation__button">Logout</button>

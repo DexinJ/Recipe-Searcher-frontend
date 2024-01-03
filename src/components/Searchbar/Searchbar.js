@@ -1,8 +1,15 @@
+import { useForm } from "../../hooks/useForms";
 import "./Searchbar.css";
-function Searchbar() {
+function Searchbar({ onSearch }) {
+  const { values, handleChange } = useForm({
+    search: "",
+  });
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    onSearch(values.search);
   };
+
   return (
     <form className="search__form" onSubmit={handleSubmit}>
       <input
@@ -11,6 +18,8 @@ function Searchbar() {
         placeholder="egg, chicken, lettuce, ..."
         name="search"
         required
+        value={values.search}
+        onChange={handleChange}
       />
       <button className="search__button" type="submit">
         Search

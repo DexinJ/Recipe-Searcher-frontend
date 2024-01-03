@@ -21,6 +21,8 @@
   border: none;
   background-color: transparent;
   cursor: pointer;
+  color: inherit;
+  text-decoration: inherit;
 }
 
 .footer__button-github {

@@ -1,6 +1,6 @@
 import Searchbar from "../Searchbar/Searchbar";
 import "./Search.css";
-function Search() {
+function Search({ onSearch }) {
   return (
     <div className="search">
       <div className="search__container">
@@ -11,7 +11,7 @@ function Search() {
         </div>
       </div>
 
-      <Searchbar />
+      <Searchbar onSearch={onSearch} />
     </div>
   );
 }
