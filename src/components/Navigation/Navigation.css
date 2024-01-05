@@ -32,12 +32,14 @@
   line-height: 20px;
   width: 122px;
   height: 80px;
+  font-family: "Inter-Regular";
   /* border-bottom: 1px solid #4e4e4e; */
 }
 
 .navigation__tag_active {
   border-bottom: 1px solid #fff;
   font-weight: 900;
+  font-family: "Inter-Black";
 }
 
 .navigation__button {
@@ -51,6 +53,7 @@
   background-color: transparent;
   color: white;
   cursor: pointer;
+  font-family: "Inter-Regular";
 }
 
 .navigation__image {

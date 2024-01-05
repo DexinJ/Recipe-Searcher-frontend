@@ -33,7 +33,7 @@ function Footer() {
             Portfolio
           </a>
           <a
-            className="footer__button "
+            className="footer__button"
             href="https://github.com/DexinJ"
             target="_blank"
             rel="noreferrer"
