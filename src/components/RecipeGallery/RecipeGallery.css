@@ -5,6 +5,9 @@
 .gallery__caption {
   font-size: 30px;
   line-height: 34px;
+  font-weight: 500;
+  margin: 0;
+  padding: 0;
 }
 
 .gallery__gallery {

@@ -1,16 +1,16 @@
 import "./MobileNavigation.css";
+import logo from "../../images/whats_in_my_fridge.svg";
+
 function MobileNavigation({ onClick, show }) {
-  const menuClass = show ? "mobile-navigation" : "mobile-navigation_off";
+  const menuClass = show
+    ? "mobile-navigation"
+    : "mobile-navigation mobile-navigation_off";
   return (
-    <div className={menuClass}>
+    <nav className={menuClass}>
       <div className="mobile-navigation__menu">
         <div className="navigation">
           <div>
-            <img
-              src="/images/whats_in_my_fridge.svg"
-              alt="logo"
-              className="navigation__image"
-            />
+            <img src={logo} alt="logo" className="navigation__image" />
           </div>
           <button
             className="mobile-navigation__close"
@@ -22,7 +22,7 @@ function MobileNavigation({ onClick, show }) {
         <button className="mobile-navigation__button">Saved Recipe</button>
         <button className="mobile-navigation__button">Logout</button>
       </div>
-    </div>
+    </nav>
   );
 }
 

@@ -14,15 +14,15 @@ function RecipeCard({ item, onSelect }) {
         onClick={handleCardClick}
       />
       <div className="item__texts">
-        <div className="item__title" onClick={handleCardClick}>
+        <h3 className="item__title" onClick={handleCardClick}>
           {item.title}
-        </div>
-        <div className="item__info">
+        </h3>
+        <p className="item__info">
           You have {item.usedIngredientCount} ingredient(s).
-        </div>
-        <div className="item__info">
+        </p>
+        <p className="item__info">
           You are missing {item.missedIngredientCount} ingredient(s).
-        </div>
+        </p>
       </div>
     </div>
   );

@@ -27,7 +27,7 @@
   border: none;
   cursor: pointer;
   background-color: transparent;
-  background-image: url("../../../public/images/bookmark.svg");
+  background-image: url("../../images/bookmark.svg");
 }
 
 .item__texts {
@@ -39,8 +39,11 @@
   line-height: 24px;
   font-weight: 700;
   cursor: pointer;
+  margin: 0;
+  padding: 0;
 }
 
 .item__info {
   margin: 10px 0;
+  padding: 0;
 }

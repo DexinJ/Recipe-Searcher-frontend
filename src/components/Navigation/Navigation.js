@@ -2,6 +2,8 @@ import MobileNavigation from "../MobileNavigation/MobileNavigation";
 import { useState } from "react";
 import "./Navigation.css";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import logo from "../../images/whats_in_my_fridge.svg";
+
 function Navigation() {
   const [visible, setVisible] = useState(false);
   const handleOpenMenu = () => {
@@ -9,14 +11,10 @@ function Navigation() {
   };
 
   return (
-    <div className="navigation">
+    <nav className="navigation">
       <div>
         <Link to="/">
-          <img
-            src="images/whats_in_my_fridge.svg"
-            alt="logo"
-            className="navigation__image"
-          />
+          <img src={logo} alt="logo" className="navigation__image" />
         </Link>
       </div>
       <div className="navigation__buttons">
@@ -34,7 +32,7 @@ function Navigation() {
         onClick={handleOpenMenu}
       />
       <MobileNavigation onClick={handleOpenMenu} show={visible} />
-    </div>
+    </nav>
   );
 }
 

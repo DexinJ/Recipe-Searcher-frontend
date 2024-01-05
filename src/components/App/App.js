@@ -22,6 +22,9 @@ function App() {
       .then((res) => {
         setRecipeList(res);
       })
+      .catch((err) => {
+        console.error(err);
+      })
       .finally(() => {
         setIsLoading(false);
       });
@@ -33,6 +36,9 @@ function App() {
     getRecipeInfo(id)
       .then((res) => {
         setCurrentRecipe(res);
+      })
+      .catch((err) => {
+        console.error(err);
       })
       .finally(() => {
         setIsCardLoading(false);

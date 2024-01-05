@@ -1,10 +1,17 @@
 import Preloader from "../Preloader/Preloader";
 import "./RecipeModal.css";
+import modalClose from "../../images/close.svg";
 
 function RecipeModal({ content, onClose, isLoading }) {
-  const price = content.pricePerServing / 100;
+  const PRICE = content.pricePerServing / 100;
+  const handleBackGroundClick = (e) => {
+    if (e.target.className === "modal") {
+      onClose();
+    }
+  };
+
   return (
-    <div className="modal">
+    <div className="modal" onClick={handleBackGroundClick}>
       <div className="modal__image-container">
         {isLoading ? (
           <Preloader />
@@ -15,24 +22,25 @@ function RecipeModal({ content, onClose, isLoading }) {
               alt={`${content.title} © ${content.sourceName}`}
               className="modal__image"
             />
-            <div className="modal__small-text">
+            <p className="modal__small-text">
               Image source © {content.sourceName}
-            </div>
-            <div className="modal__title">{content.title}</div>
+            </p>
+            <h3 className="modal__title">{content.title}</h3>
             <div className=" modal__text-box">
-              <div className="modal__text">${price.toFixed(2)} per serving</div>
-              <div className="modal__text">
+              <p className="modal__text">${PRICE.toFixed(2)} per serving</p>
+              <p className="modal__text">
                 Ready in {content.readyInMinutes} minutes.
-              </div>
-              <div className="modal__text">
+              </p>
+              <p className="modal__text">
                 Spoonacular score: {content.spoonacularScore.toFixed(2)}%
-              </div>
+              </p>
             </div>
             <div className="modal__text-box">
               <a
                 href={content.sourceUrl}
                 className="modal__link"
                 target="_blank"
+                rel="noreferrer"
               >
                 View in {content.sourceName}
               </a>
@@ -40,18 +48,15 @@ function RecipeModal({ content, onClose, isLoading }) {
                 href={content.spoonacularSourceUrl}
                 className="modal__link"
                 target="_blank"
+                rel="noreferrer"
               >
                 View in Spoonacular
               </a>
             </div>
           </div>
         )}
-        <button
-          type="button"
-          onClick={onClose}
-          className="modal__close modal__white"
-        >
-          <img src="/images/Close.svg" alt="close modal button" />
+        <button type="button" onClick={onClose} className="modal__close">
+          <img src={modalClose} alt="close modal button" />
         </button>
       </div>
     </div>
