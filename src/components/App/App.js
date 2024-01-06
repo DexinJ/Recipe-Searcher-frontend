@@ -74,7 +74,7 @@ function App() {
   return (
     <div className="page">
       <Header onSearch={handleRecipeSearch} />
-      <Route exact path="/recipe-searcher-frontend/">
+      <Route exact path="/">
         <Main
           items={recipeList}
           isLoading={isLoading}
