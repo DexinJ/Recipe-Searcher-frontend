@@ -1,9 +1,9 @@
 import { APIKey } from "./constants";
 import { processServerResopnse } from "./utils";
 
-const getRecipe = (ingredients, number = 20) => {
+const getRecipe = (ingredients) => {
   return fetch(
-    `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${APIKey}&ingredients=${ingredients}&ranking=2&number=${number}`
+    `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${APIKey}&ingredients=${ingredients}&number=20`
   ).then(processServerResopnse);
 };
 
