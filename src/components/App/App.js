@@ -18,6 +18,7 @@ function App() {
 
   const handleRecipeSearch = (indigrients) => {
     setIsLoading(true);
+    console.log(mainRef);
     mainRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
     getRecipe(indigrients)
       .then((res) => {
