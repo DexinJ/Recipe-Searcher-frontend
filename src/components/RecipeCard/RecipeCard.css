@@ -1,0 +1,49 @@
+.item {
+  margin: 0;
+  position: relative;
+  border-radius: 10px;
+  object-fit: contain;
+  background-color: #fff;
+  width: 300px;
+}
+
+.item__image {
+  width: 300px;
+  height: 231px;
+  cursor: pointer;
+  border-radius: 10px;
+  object-fit: contain;
+}
+
+.item__button {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 30px;
+  height: 30px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  background-image: url("../../images/bookmark.svg");
+}
+
+.item__texts {
+  padding: 10px 12px;
+}
+
+.item__title {
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 700;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+}
+
+.item__info {
+  margin: 10px 0;
+  padding: 0;
+}
