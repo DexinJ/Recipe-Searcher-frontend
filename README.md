@@ -1,3 +1,5 @@
-# Getting Started with Create React App
+# Recipe-Searcher-frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+##Links
+ - Project Demo [https://dexinj.github.io/recipe-searcher-frontend/]
+
