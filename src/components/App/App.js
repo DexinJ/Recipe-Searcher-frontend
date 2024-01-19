@@ -7,6 +7,7 @@ import { getRecipe, getRecipeInfo } from "../../utils/spoonacularAPI";
 import { useEffect, useRef, useState } from "react";
 import { Route } from "react-router-dom/cjs/react-router-dom.min";
 import RecipeModal from "../RecipieModal/RecipeModal";
+import Profile from "../Profile/Profile";
 
 function App() {
   const [isLoading, setIsLoading] = useState(false);
@@ -14,6 +15,7 @@ function App() {
   const [recipeList, setRecipeList] = useState([]);
   const [currentRecipe, setCurrentRecipe] = useState({});
   const [activeModal, setActiveModal] = useState("");
+  const [activePage, setActivePage] = useState("home");
   const mainRef = useRef();
 
   const handleRecipeSearch = (indigrients) => {
@@ -82,7 +84,9 @@ function App() {
           onSelect={handleSelectedRecipe}
         />
       </Route>
-      <Route path="/saved"></Route>
+      <Route path="/saved">
+        <Profile />
+      </Route>
       <Footer />
       {activeModal === "recipe" && (
         <RecipeModal
