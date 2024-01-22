@@ -1,6 +1,6 @@
 .footer {
   background-color: #fff;
-  padding: 24px 104px;
+
   font-family: "Inter-Regular";
 }
 
@@ -69,10 +69,4 @@
   height: 120px;
   border-radius: 50%;
   object-fit: cover;
-}
-
-@media screen and (max-width: 750px) {
-  .footer {
-    padding: 24px 0;
-  }
 }

@@ -5,9 +5,13 @@ import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import { getRecipe, getRecipeInfo } from "../../utils/spoonacularAPI";
 import { useEffect, useRef, useState } from "react";
-import { Route } from "react-router-dom/cjs/react-router-dom.min";
 import RecipeModal from "../RecipieModal/RecipeModal";
-import Profile from "../Profile/Profile";
+import LoginModal from "../LoginModal/LoginModal";
+import RegisterModal from "../RegisterModal/RegisterModal";
+import { getCollection, popRecipe, storeRecipe } from "../../utils/api";
+import { authorizeToken, signin, signout, signup } from "../../utils/auth";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+import { CurrentSavedRecipeContext } from "../../contexts/CurrentSavedRecipeContext";
 
 function App() {
   const [isLoading, setIsLoading] = useState(false);
@@ -15,12 +19,14 @@ function App() {
   const [recipeList, setRecipeList] = useState([]);
   const [currentRecipe, setCurrentRecipe] = useState({});
   const [activeModal, setActiveModal] = useState("");
-  const [activePage, setActivePage] = useState("home");
+  const [currentUser, setCurrentUser] = useState({});
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [itemList, setItemList] = useState([]);
+
   const mainRef = useRef();
 
   const handleRecipeSearch = (indigrients) => {
     setIsLoading(true);
-    console.log(mainRef);
     mainRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
     getRecipe(indigrients)
       .then((res) => {
@@ -57,6 +63,53 @@ function App() {
     setActiveModal("");
   };
 
+  const handleLogin = ({ email, password }) => {
+    setIsCardLoading(true);
+    signin({ email, password })
+      .then((res) => {
+        setCurrentUser(res);
+        setIsLoggedIn(true);
+      })
+      .then(() => handleCloseModal())
+      .catch((err) => console.error(err))
+      .finally(() => setIsCardLoading(false));
+  };
+
+  const handleLogOut = () => {
+    signout()
+      .then(() => {
+        setCurrentUser({});
+        setIsLoggedIn(false);
+      })
+      .catch((err) => console.error(err));
+  };
+
+  const handleRegister = ({ email, password, name }) => {
+    setIsCardLoading(true);
+    signup({ email, password, name })
+      .then((res) => {
+        setCurrentUser(res);
+        handleLogin({ email, password });
+      })
+      .then(() => handleCloseModal())
+      .catch((err) => console.error(err))
+      .finally(() => setIsCardLoading(false));
+  };
+
+  const handleRecipeSave = ({ id, isSaved }) => {
+    isSaved
+      ? popRecipe(id)
+          .then((res) => {
+            setItemList(res);
+          })
+          .catch((err) => console.error(err))
+      : storeRecipe(id)
+          .then((res) => {
+            setItemList(res);
+          })
+          .catch((err) => console.error(err));
+  };
+
   useEffect(() => {
     if (!activeModal) return;
 
@@ -73,29 +126,70 @@ function App() {
     };
   }, [activeModal]);
 
+  useEffect(() => {
+    authorizeToken()
+      .then((res) => {
+        setCurrentUser(res);
+        setIsLoggedIn(true);
+        getCollection().then((res) => {
+          setItemList(res);
+        });
+      })
+      .catch((err) => console.error("Invalid token: ", err));
+  }, []);
+
   return (
-    <div className="page">
-      <Header onSearch={handleRecipeSearch} />
-      <Route exact path="/">
-        <Main
-          items={recipeList}
-          isLoading={isLoading}
-          mainRef={mainRef}
-          onSelect={handleSelectedRecipe}
+    <CurrentUserContext.Provider value={currentUser}>
+      <div className="page">
+        <Header
+          onSearch={handleRecipeSearch}
+          isLoggedIn={isLoggedIn}
+          onLogout={handleLogOut}
+          onSignIn={() => {
+            handleActiveModal("login");
+          }}
+          onRegister={() => {
+            handleActiveModal("register");
+          }}
         />
-      </Route>
-      <Route path="/saved">
-        <Profile />
-      </Route>
-      <Footer />
-      {activeModal === "recipe" && (
-        <RecipeModal
-          content={currentRecipe}
-          onClose={handleCloseModal}
-          isLoading={isCardLoading}
-        />
-      )}
-    </div>
+        <CurrentSavedRecipeContext.Provider value={itemList}>
+          <Main
+            items={recipeList}
+            isLoading={isLoading}
+            mainRef={mainRef}
+            onSelect={handleSelectedRecipe}
+            isLoggedIn={isLoggedIn}
+            onRecipeSave={handleRecipeSave}
+          />
+        </CurrentSavedRecipeContext.Provider>
+        <Footer main={mainRef} />
+        {activeModal === "recipe" && (
+          <RecipeModal
+            content={currentRecipe}
+            onClose={handleCloseModal}
+            isLoading={isCardLoading}
+          />
+        )}
+        {activeModal === "login" && (
+          <LoginModal
+            onClose={handleCloseModal}
+            onSubmit={handleLogin}
+            onRedirect={() => {
+              handleActiveModal("register");
+            }}
+          />
+        )}
+        {activeModal === "register" && (
+          <RegisterModal
+            onClose={handleCloseModal}
+            onSubmit={handleRegister}
+            onRedirect={() => {
+              handleActiveModal("login");
+            }}
+          />
+        )}
+      </div>
+    </CurrentUserContext.Provider>
   );
 }
 

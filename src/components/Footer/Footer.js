@@ -1,10 +1,31 @@
-import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
+import {
+  NavLink,
+  useLocation,
+} from "react-router-dom/cjs/react-router-dom.min";
 import "./Footer.css";
 import author from "../../images/head.jpg";
 import github from "../../images/github.svg";
-function Footer() {
+import { useEffect, useState } from "react";
+import useWindowDimensions from "../../hooks/useWindowDimensions";
+
+function Footer({ main }) {
+  const [mainHeight, setmainHeight] = useState(0);
+  const { width, height } = useWindowDimensions();
+  const reactLocation = useLocation();
+  const currentLocation = reactLocation.pathname === "/";
+
+  useEffect(() => {
+    setmainHeight(856 + main.current.clientHeight);
+  });
+
+  const footerPadding = currentLocation
+    ? `${width > 800 ? Math.max(24, height - mainHeight) : 24}px ${
+        width > 800 ? "104px" : "0"
+      } 24px`
+    : "24px 104px";
+
   return (
-    <footer className="footer">
+    <footer className="footer" style={{ padding: footerPadding }}>
       <div className="footer__about-me">
         <img src={author} className="footer__image" alt="Author" />
         <div className="footer__texts">

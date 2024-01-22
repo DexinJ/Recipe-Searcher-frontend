@@ -1,14 +1,22 @@
-import { Route } from "react-router-dom/cjs/react-router-dom.min";
+import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import Navigation from "../Navigation/Navigation";
 import Search from "../Search/Search";
 import "./Header.css";
-function Header({ onSearch }) {
+import Greeting from "../Greeting/Greeting";
+function Header({ isLoggedIn, onSearch, onLogout, onSignIn, onRegister }) {
+  const reactLocation = useLocation();
+  const currentLocation = reactLocation.pathname === "/";
+  const headerClass = currentLocation ? "header" : "header header__white";
+
   return (
-    <header className="header">
-      <Navigation />
-      <Route exact path="/">
-        <Search onSearch={onSearch} />
-      </Route>
+    <header className={headerClass}>
+      <Navigation
+        isLoggedIn={isLoggedIn}
+        onLogout={onLogout}
+        onSignIn={onSignIn}
+        onRegister={onRegister}
+      />
+      {currentLocation ? <Search onSearch={onSearch} /> : <Greeting />}
     </header>
   );
 }

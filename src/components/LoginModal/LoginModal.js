@@ -1,4 +1,4 @@
-import { useForm } from "../../hooks/useForm";
+import { useForm } from "../../hooks/useForms";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
 function LoginModal({ onClose, onSubmit, onRedirect }) {
@@ -35,7 +35,7 @@ function LoginModal({ onClose, onSubmit, onRedirect }) {
         <input
           className="modal__input modal__text"
           name="password"
-          type="text"
+          type="password"
           minLength="1"
           maxLength="8"
           placeholder="Password"

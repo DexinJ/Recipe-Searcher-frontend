@@ -1,4 +1,8 @@
 const APIKey = "8ff3605cc2cf4485bbf3e3bc91430402";
+const baseUrl =
+  process.env.NODE_ENV === "production"
+    ? "https://api.whatsinmyfridge.photo-frame.com"
+    : "http://localhost:3001";
 
 const defaultRecipeItem = [
   {
@@ -158,4 +162,4 @@ const defaultRecipeItem = [
   },
 ];
 
-export { APIKey, defaultRecipeItem };
+export { APIKey, defaultRecipeItem, baseUrl };

@@ -7,6 +7,11 @@
   background-color: rgba(0, 0, 0, 0.1);
 }
 
+.navigation__white {
+  background-color: transparent;
+  border-bottom: #000 1px solid;
+}
+
 .navigation__buttons {
   display: flex;
   justify-content: space-between;
@@ -36,8 +41,18 @@
   /* border-bottom: 1px solid #4e4e4e; */
 }
 
+.navigation__black {
+  color: #000;
+}
+
 .navigation__tag_active {
   border-bottom: 1px solid #fff;
+  font-weight: 900;
+  font-family: "Inter-Black";
+}
+
+.navigation__tag_active_black {
+  border-bottom: 1px solid #000;
   font-weight: 900;
   font-family: "Inter-Black";
 }
@@ -52,6 +67,20 @@
   border-radius: 50px;
   background-color: transparent;
   color: white;
+  cursor: pointer;
+  font-family: "Inter-Regular";
+}
+
+.navigation__button_black {
+  font-size: 16px;
+  line-height: 20px;
+  height: 48px;
+  width: 122px;
+  padding: 0;
+  border: 1px solid #000;
+  border-radius: 50px;
+  background-color: transparent;
+  color: #000;
   cursor: pointer;
   font-family: "Inter-Regular";
 }
