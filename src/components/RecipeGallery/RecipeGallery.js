@@ -14,6 +14,7 @@ function RecipeGallery({ itemList, onSelect, onRecipeSave, isLoggedIn }) {
               key={item.id}
               onSelect={onSelect}
               onSave={onRecipeSave}
+              isLoggedIn={isLoggedIn}
             />
           );
         })}
