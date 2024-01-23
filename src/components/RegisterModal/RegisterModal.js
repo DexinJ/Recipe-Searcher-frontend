@@ -29,6 +29,20 @@ function RegisterModal({ onClose, onSubmit, onRedirect }) {
       secondButtonLink={onRedirect}
     >
       <label className="modal__field modal__text">
+        Name*
+        <input
+          className="modal__input modal__text"
+          name="name"
+          type="text"
+          minLength="1"
+          maxLength="30"
+          placeholder="Name"
+          required
+          value={values.name}
+          onChange={handleChange}
+        />
+      </label>
+      <label className="modal__field modal__text">
         Email*
         <input
           className="modal__input modal__text"
@@ -51,20 +65,6 @@ function RegisterModal({ onClose, onSubmit, onRedirect }) {
           placeholder="Password"
           required
           value={values.password}
-          onChange={handleChange}
-        />
-      </label>
-      <label className="modal__field modal__text">
-        Name*
-        <input
-          className="modal__input modal__text"
-          name="name"
-          type="text"
-          minLength="1"
-          maxLength="30"
-          placeholder="Name"
-          required
-          value={values.name}
           onChange={handleChange}
         />
       </label>
