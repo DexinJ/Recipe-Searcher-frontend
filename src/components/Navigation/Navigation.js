@@ -70,7 +70,14 @@ function Navigation({ isLoggedIn, onLogout, onSignIn, onRegister }) {
         type="button"
         onClick={handleOpenMenu}
       />
-      <MobileNavigation onClick={handleOpenMenu} show={visible} />
+      <MobileNavigation
+        onClick={handleOpenMenu}
+        show={visible}
+        isLoggedIn={isLoggedIn}
+        onSignIn={onSignIn}
+        onRegister={onRegister}
+        onLogout={onLogout}
+      />
     </nav>
   );
 }

@@ -2,7 +2,7 @@ import { useContext } from "react";
 import "./RecipeCard.css";
 import { CurrentSavedRecipeContext } from "../../contexts/CurrentSavedRecipeContext";
 
-function RecipeCard({ item, onSelect, onSave }) {
+function RecipeCard({ item, onSelect, onSave, isLoggedIn }) {
   const itemList = useContext(CurrentSavedRecipeContext);
   const id = item.id;
   const handleCardClick = () => {
@@ -18,7 +18,13 @@ function RecipeCard({ item, onSelect, onSave }) {
   };
   return (
     <div className="item">
-      <button className={buttonClass} type="button" onClick={handleCardSave} />
+      {isLoggedIn && (
+        <button
+          className={buttonClass}
+          type="button"
+          onClick={handleCardSave}
+        />
+      )}
       <img
         src={item.image}
         className="item__image"

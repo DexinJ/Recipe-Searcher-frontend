@@ -27,6 +27,7 @@ function Main({
                 itemList={items}
                 onSelect={onSelect}
                 onRecipeSave={onRecipeSave}
+                isLoggedIn={isLoggedIn}
               />
             </div>
           )
