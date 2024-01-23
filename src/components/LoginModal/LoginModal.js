@@ -37,7 +37,7 @@ function LoginModal({ onClose, onSubmit, onRedirect }) {
           name="password"
           type="password"
           minLength="1"
-          maxLength="8"
+          maxLength="30"
           placeholder="Password"
           required
           value={values.password}

@@ -61,7 +61,7 @@ function RegisterModal({ onClose, onSubmit, onRedirect }) {
           name="password"
           type="text"
           minLength="1"
-          maxLength="8"
+          maxLength="30"
           placeholder="Password"
           required
           value={values.password}
