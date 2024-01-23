@@ -1,7 +1,7 @@
 .footer {
   background-color: #fff;
   padding: 24px 104px;
-  font-family: "Inter-Regular";
+  font-family: "Inter-Regular", sans-serif;
 }
 
 .footer__credits {
@@ -45,7 +45,7 @@
   font-weight: 700;
   margin: 0 0 14px;
   padding: 0;
-  font-family: "Inter-Bold";
+  font-family: "Inter-Bold", sans-serif;
 }
 
 .footer__text {
