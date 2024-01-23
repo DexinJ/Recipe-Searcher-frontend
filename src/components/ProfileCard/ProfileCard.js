@@ -1,8 +1,7 @@
 import { useContext } from "react";
-import "./RecipeCard.css";
 import { CurrentSavedRecipeContext } from "../../contexts/CurrentSavedRecipeContext";
 
-function RecipeCard({ item, onSelect, onSave }) {
+function ProfileCard({ item, onSelect, onSave }) {
   const itemList = useContext(CurrentSavedRecipeContext);
   const id = item.id;
   const handleCardClick = () => {
@@ -29,15 +28,8 @@ function RecipeCard({ item, onSelect, onSave }) {
         <h3 className="item__title" onClick={handleCardClick}>
           {item.title}
         </h3>
-        <p className="item__info">
-          You have {item.usedIngredientCount} ingredient(s).
-        </p>
-        <p className="item__info">
-          You are missing {item.missedIngredientCount} ingredient(s).
-        </p>
       </div>
     </div>
   );
 }
-
-export default RecipeCard;
+export default ProfileCard;

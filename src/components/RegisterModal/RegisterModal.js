@@ -1,5 +1,5 @@
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
-import { useForm } from "../../hooks/useForm";
+import { useForm } from "../../hooks/useForms";
 
 function RegisterModal({ onClose, onSubmit, onRedirect }) {
   const { values, handleChange } = useForm({
@@ -65,18 +65,6 @@ function RegisterModal({ onClose, onSubmit, onRedirect }) {
           placeholder="Name"
           required
           value={values.name}
-          onChange={handleChange}
-        />
-      </label>
-      <label className="modal__field modal__text">
-        Avatar*
-        <input
-          className="modal__input modal__text"
-          name="avatar"
-          type="url"
-          placeholder="Avatar URL"
-          required
-          value={values.avatar}
           onChange={handleChange}
         />
       </label>

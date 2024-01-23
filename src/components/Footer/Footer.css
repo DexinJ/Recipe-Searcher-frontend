@@ -1,7 +1,12 @@
 .footer {
   background-color: #fff;
+<<<<<<< HEAD
   padding: 24px 104px;
   font-family: "Inter-Regular", sans-serif;
+=======
+
+  font-family: "Inter-Regular";
+>>>>>>> b3dd31cfb454011d34c2fc891416409c2748400b
 }
 
 .footer__credits {
@@ -69,10 +74,4 @@
   height: 120px;
   border-radius: 50%;
   object-fit: cover;
-}
-
-@media screen and (max-width: 750px) {
-  .footer {
-    padding: 24px 0;
-  }
 }
