@@ -1,22 +1,32 @@
 import { useForm } from "../../hooks/useForms";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-function LoginModal({ onClose, onSubmit, onRedirect }) {
-  const { values, handleChange } = useForm({ email: "", password: "" });
+function LoginModal({ onClose, onSubmit, onRedirect, isLoading }) {
+  const { values, handleChange, isValid, resetForm, errors } = useForm({
+    email: "",
+    password: "",
+  });
 
   const handleSubmit = () => {
     onSubmit({ email: values.email, password: values.password });
   };
 
+  const handleClose = () => {
+    onClose();
+    resetForm();
+  };
+
   return (
     <ModalWithForm
       title="Login"
-      onClose={onClose}
+      onClose={handleClose}
       onSubmit={handleSubmit}
       buttonText="Login"
       secondButton={true}
       secondButtonText="or Register"
       secondButtonLink={onRedirect}
+      isLoading={isLoading}
+      isValid={isValid}
     >
       <label className="modal__field modal__text">
         Email
@@ -29,6 +39,9 @@ function LoginModal({ onClose, onSubmit, onRedirect }) {
           value={values.email}
           onChange={handleChange}
         />
+        <span className="modal__error" id="email-input-error">
+          {errors.email}
+        </span>
       </label>
       <label className="modal__field modal__text">
         Password
@@ -36,13 +49,14 @@ function LoginModal({ onClose, onSubmit, onRedirect }) {
           className="modal__input modal__text"
           name="password"
           type="password"
-          minLength="1"
-          maxLength="30"
           placeholder="Password"
           required
           value={values.password}
           onChange={handleChange}
         />
+        <span className="modal__error" id="password-input-error">
+          {errors.password}
+        </span>
       </label>
     </ModalWithForm>
   );

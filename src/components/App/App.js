@@ -160,6 +160,9 @@ function App() {
             onSelect={handleSelectedRecipe}
             isLoggedIn={isLoggedIn}
             onRecipeSave={handleRecipeSave}
+            onRegister={() => {
+              handleActiveModal("register");
+            }}
           />
         </CurrentSavedRecipeContext.Provider>
         <Footer main={mainRef} />
@@ -177,6 +180,7 @@ function App() {
             onRedirect={() => {
               handleActiveModal("register");
             }}
+            isLoading={isCardLoading}
           />
         )}
         {activeModal === "register" && (
@@ -186,6 +190,7 @@ function App() {
             onRedirect={() => {
               handleActiveModal("login");
             }}
+            isLoading={isCardLoading}
           />
         )}
       </div>

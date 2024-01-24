@@ -90,6 +90,16 @@
   display: flex;
   flex-direction: column;
 }
+
+.modal__error {
+  color: #f00;
+  margin: 0;
+  padding-top: 3px;
+  font-family: "Inter-Bold";
+  font-size: 14px;
+  line-height: 20px;
+}
+
 .modal__input {
   padding: 10px 0 0;
   width: 100%;

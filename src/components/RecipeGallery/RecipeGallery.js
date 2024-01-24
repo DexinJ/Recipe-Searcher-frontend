@@ -1,7 +1,13 @@
 import "./RecipeGallery.css";
 import RecipeCard from "../RecipeCard/RecipeCard";
 
-function RecipeGallery({ itemList, onSelect, onRecipeSave, isLoggedIn }) {
+function RecipeGallery({
+  itemList,
+  onSelect,
+  onRecipeSave,
+  isLoggedIn,
+  onRegister,
+}) {
   return (
     <div className="gallery" id="cardSection">
       <h2 className="gallery__caption">Search results:</h2>
@@ -15,6 +21,7 @@ function RecipeGallery({ itemList, onSelect, onRecipeSave, isLoggedIn }) {
               onSelect={onSelect}
               onSave={onRecipeSave}
               isLoggedIn={isLoggedIn}
+              onRegister={onRegister}
             />
           );
         })}

@@ -11,6 +11,7 @@ function Main({
   onSelect,
   isLoggedIn,
   onRecipeSave,
+  onRegister,
 }) {
   return (
     <main className="main" ref={mainRef}>
@@ -28,6 +29,7 @@ function Main({
                 onSelect={onSelect}
                 onRecipeSave={onRecipeSave}
                 isLoggedIn={isLoggedIn}
+                onRegister={onRegister}
               />
             </div>
           )
