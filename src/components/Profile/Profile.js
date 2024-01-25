@@ -8,6 +8,7 @@ function Profile({ onSelect, onRecipeSave }) {
   const itemList = useContext(CurrentSavedRecipeContext);
   const [isLoading, setIsLoading] = useState(true);
   const [recipeList, setRecipeList] = useState([]);
+  console.log(itemList);
 
   useEffect(() => {
     getRecipeBulk(itemList.toString())

@@ -100,11 +100,13 @@ function App() {
     isSaved
       ? popRecipe(id)
           .then((res) => {
+            console.log(res);
             setItemList(res);
           })
           .catch((err) => console.error(err))
       : storeRecipe(id)
           .then((res) => {
+            console.log(res);
             setItemList(res);
           })
           .catch((err) => console.error(err));
@@ -141,18 +143,18 @@ function App() {
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className="page">
-        <Header
-          onSearch={handleRecipeSearch}
-          isLoggedIn={isLoggedIn}
-          onLogout={handleLogOut}
-          onSignIn={() => {
-            handleActiveModal("login");
-          }}
-          onRegister={() => {
-            handleActiveModal("register");
-          }}
-        />
         <CurrentSavedRecipeContext.Provider value={itemList}>
+          <Header
+            onSearch={handleRecipeSearch}
+            isLoggedIn={isLoggedIn}
+            onLogout={handleLogOut}
+            onSignIn={() => {
+              handleActiveModal("login");
+            }}
+            onRegister={() => {
+              handleActiveModal("register");
+            }}
+          />
           <Main
             items={recipeList}
             isLoading={isLoading}

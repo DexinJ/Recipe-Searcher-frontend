@@ -5,6 +5,7 @@ import { CurrentSavedRecipeContext } from "../../contexts/CurrentSavedRecipeCont
 function Greeting() {
   const currentUser = useContext(CurrentUserContext);
   const itemList = useContext(CurrentSavedRecipeContext);
+  console.log(itemList);
   return (
     <div className="greeting">
       <h2 className="greeting__title">Saved Recepies</h2>
