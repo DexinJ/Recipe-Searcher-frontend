@@ -100,13 +100,11 @@ function App() {
     isSaved
       ? popRecipe(id)
           .then((res) => {
-            console.log(res);
             setItemList(res);
           })
           .catch((err) => console.error(err))
       : storeRecipe(id)
           .then((res) => {
-            console.log(res);
             setItemList(res);
           })
           .catch((err) => console.error(err));
