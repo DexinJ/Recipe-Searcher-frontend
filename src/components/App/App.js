@@ -73,9 +73,10 @@ function App() {
       .then(() => {
         const ID = localStorage.getItem("idToSave");
         if (ID) {
-          handleRecipeSave({ id: ID, isSaved: false }).then(() => {
-            localStorage.removeItem("idToSave");
-          });
+          handleRecipeSave({ id: ID, isSaved: false });
+          localStorage.removeItem("idToSave");
+        } else {
+          getCollection().then((res) => setItemList(res));
         }
       })
       .then(() => handleCloseModal())
@@ -88,6 +89,7 @@ function App() {
       .then(() => {
         setCurrentUser({});
         setIsLoggedIn(false);
+        setItemList([]);
       })
       .catch((err) => console.error(err));
   };
