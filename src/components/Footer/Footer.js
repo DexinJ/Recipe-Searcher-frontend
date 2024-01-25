@@ -39,7 +39,14 @@ function Footer({ main }) {
       </div>
       <div className="footer__credits">
         <p className="footer__text-grey">
-          © 2023 Tony Jin, Powered by Spoonacular API
+          © 2023 Tony Jin, Powered by{" "}
+          <a
+            className="footer__text-grey"
+            href="https://spoonacular.com/food-api"
+            target="_blank"
+          >
+            Spoonacular API
+          </a>
         </p>
         <div className="footer__buttons">
           <NavLink exact to="/" className="footer__button" id="home">

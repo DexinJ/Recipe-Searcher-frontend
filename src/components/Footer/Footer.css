@@ -6,6 +6,7 @@
 .footer__credits {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .footer__buttons {

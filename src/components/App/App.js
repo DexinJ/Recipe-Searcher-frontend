@@ -70,6 +70,14 @@ function App() {
         setCurrentUser(res);
         setIsLoggedIn(true);
       })
+      .then(() => {
+        const ID = localStorage.getItem("idToSave");
+        if (ID) {
+          handleRecipeSave({ id: ID, isSaved: false }).then(() => {
+            localStorage.removeItem("idToSave");
+          });
+        }
+      })
       .then(() => handleCloseModal())
       .catch((err) => console.error(err))
       .finally(() => setIsCardLoading(false));

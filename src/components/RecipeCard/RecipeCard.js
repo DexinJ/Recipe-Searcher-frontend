@@ -15,12 +15,18 @@ function RecipeCard({ item, onSelect, onSave, isLoggedIn, onRegister }) {
   const handleCardSave = () => {
     onSave({ id: item.id, isSaved: itemList.includes(item.id) });
   };
+
+  const handleLoginSave = () => {
+    onRegister();
+    localStorage.setItem("idToSave", item.id);
+  };
+
   return (
     <div className="item">
       <button
         className={buttonClass}
         type="button"
-        onClick={isLoggedIn ? handleCardSave : onRegister}
+        onClick={isLoggedIn ? handleCardSave : handleLoginSave}
       />
 
       <img
