@@ -1,10 +1,33 @@
 import "./MobileNavigation.css";
 import logo from "../../images/whats_in_my_fridge.svg";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
-function MobileNavigation({ onClick, show }) {
+function MobileNavigation({
+  onClick,
+  show,
+  isLoggedIn,
+  onSignIn,
+  onRegister,
+  onLogout,
+}) {
   const menuClass = show
     ? "mobile-navigation"
     : "mobile-navigation mobile-navigation_off";
+  const handleLogin = () => {
+    onSignIn();
+    onClick();
+  };
+
+  const handleRegister = () => {
+    onRegister();
+    onClick();
+  };
+
+  const handleLogOut = () => {
+    onLogout();
+    onClick();
+  };
+
   return (
     <nav className={menuClass}>
       <div className="mobile-navigation__menu">
@@ -18,9 +41,52 @@ function MobileNavigation({ onClick, show }) {
             onClick={onClick}
           />
         </div>
-        <button className="mobile-navigation__button">Home</button>
-        <button className="mobile-navigation__button">Saved Recipe</button>
-        <button className="mobile-navigation__button">Logout</button>
+        <Link to="/">
+          <button
+            className="mobile-navigation__button"
+            type="button"
+            onClick={onClick}
+          >
+            Home
+          </button>
+        </Link>
+
+        {isLoggedIn ? (
+          <Link to="profile">
+            <button
+              className="mobile-navigation__button"
+              type="button"
+              onClick={onClick}
+            >
+              Saved Recipe
+            </button>
+          </Link>
+        ) : (
+          <button
+            className="mobile-navigation__button"
+            type="button"
+            onClick={handleLogin}
+          >
+            Login
+          </button>
+        )}
+        {isLoggedIn ? (
+          <button
+            className="mobile-navigation__button"
+            type="button"
+            onClick={handleLogOut}
+          >
+            Logout
+          </button>
+        ) : (
+          <button
+            className="mobile-navigation__button"
+            type="button"
+            onClick={handleRegister}
+          >
+            Register
+          </button>
+        )}
       </div>
     </nav>
   );

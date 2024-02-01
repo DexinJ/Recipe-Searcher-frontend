@@ -21,7 +21,7 @@
 .mobile-navigation__button {
   margin: 0;
   padding: 0;
-
+  width: 100%;
   background-color: transparent;
   cursor: pointer;
   color: #fff;
@@ -33,7 +33,7 @@
 .mobile-navigation__close {
   border: 1px solid #fff;
   border-radius: 5px;
-  background-image: url("../../images/close.svg");
+  background-image: url("../../images/mobile_close.svg");
   background-position: center;
   width: 24px;
   height: 24px;

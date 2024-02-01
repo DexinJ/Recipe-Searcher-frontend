@@ -13,4 +13,10 @@ const getRecipeInfo = (id) => {
   ).then(processServerResopnse);
 };
 
-export { getRecipe, getRecipeInfo };
+const getRecipeBulk = (ids) => {
+  return fetch(
+    `https://api.spoonacular.com/recipes/informationBulk?ids=${ids}&apiKey=${APIKey}`
+  ).then(processServerResopnse);
+};
+
+export { getRecipe, getRecipeInfo, getRecipeBulk };

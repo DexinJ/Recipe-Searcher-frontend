@@ -1,9 +1,9 @@
 import { useContext } from "react";
-import "./RecipeCard.css";
 import { CurrentSavedRecipeContext } from "../../contexts/CurrentSavedRecipeContext";
 
-function RecipeCard({ item, onSelect, onSave, isLoggedIn, onRegister }) {
+function ProfileCard({ item, onSelect, onSave }) {
   const itemList = useContext(CurrentSavedRecipeContext);
+  const id = item.id;
   const handleCardClick = () => {
     onSelect(item.id);
   };
@@ -15,20 +15,9 @@ function RecipeCard({ item, onSelect, onSave, isLoggedIn, onRegister }) {
   const handleCardSave = () => {
     onSave({ id: item.id, isSaved: itemList.includes(item.id) });
   };
-
-  const handleLoginSave = () => {
-    onRegister();
-    localStorage.setItem("idToSave", item.id);
-  };
-
   return (
     <div className="item">
-      <button
-        className={buttonClass}
-        type="button"
-        onClick={isLoggedIn ? handleCardSave : handleLoginSave}
-      />
-
+      <button className={buttonClass} type="button" onClick={handleCardSave} />
       <img
         src={item.image}
         className="item__image"
@@ -39,15 +28,8 @@ function RecipeCard({ item, onSelect, onSave, isLoggedIn, onRegister }) {
         <h3 className="item__title" onClick={handleCardClick}>
           {item.title}
         </h3>
-        <p className="item__info">
-          You have {item.usedIngredientCount} ingredient(s).
-        </p>
-        <p className="item__info">
-          You are missing {item.missedIngredientCount} ingredient(s).
-        </p>
       </div>
     </div>
   );
 }
-
-export default RecipeCard;
+export default ProfileCard;
